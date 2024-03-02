@@ -24,6 +24,7 @@ function SignUpForm(){
     function saveUserDetails(){
         webClient.post('/user/addUserDetails', user).then(response => {
             alert("Sign up Successfull..... Please Login");
+            setUser(emptyUser);
         }).catch(err => {
             alert("Error occured while saving user details, Please try again");
         });
@@ -39,7 +40,7 @@ function SignUpForm(){
            }else if(error.response && error.response.status===500) {
              alert("Internal Server error, Please try again...");
            }
-        });
+        })
     }
 
     function submitSignUp(event){
@@ -47,7 +48,7 @@ function SignUpForm(){
              alert("Password and ConfirmPassword should match.. Please recheck and submit");
        }else {
             checkIfUserExists();
-            setUser(emptyUser);
+            //setUser(emptyUser);
        }
        event.preventDefault();
        
