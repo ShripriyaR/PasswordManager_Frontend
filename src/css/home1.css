@@ -9,7 +9,12 @@
     color: #fff;
     font-family: "sarif";
     font-weight: 10;
+    display: block;
 }
+.flex-end{
+    color: white;
+    padding-left: 1000px;
+ }
 
 
 .add-card button {
