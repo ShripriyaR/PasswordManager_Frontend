@@ -22,7 +22,7 @@ function SignUpForm(){
     }
 
     function saveUserDetails(){
-        webClient.post('/user/addUserDetails', user).then(response => {
+        webClient.post('/user/addUserDetails', user,{ timeout: 5000 }).then(response => {
             alert("Sign up Successfull..... Please Login");
             setUser(emptyUser);
         }).catch(err => {
@@ -31,7 +31,7 @@ function SignUpForm(){
     }
 
     function checkIfUserExists(){
-        webClient.post('/user/checkIfUserExists', user).then(response => {
+        webClient.post('/user/checkIfUserExists', user,{ timeout: 5000 }).then(response => {
             console.log("resp : " +response);
             alert("Username already exists! Try with different username");
         }).catch(error => {
@@ -42,6 +42,29 @@ function SignUpForm(){
            }
         })
     }
+    
+// function checkIfUserExists() {
+//     webClient.post('/user/checkIfUserExists', user, { timeout: 5000 })
+//         .then(response => {
+//             console.log("resp : ", response);
+//             if (response.status === 200) {
+//                 // If user exists, show alert
+//                 alert("Username already exists! Try with a different username");
+//             } else {
+//                 // If response status is not 200, proceed to save user details
+//                 saveUserDetails();
+//             }
+//         })
+//         .catch(error => {
+//             if (error.response && error.response.status === 500) {
+//                 // If internal server error occurs, show alert
+//                 alert("Internal Server error. Please try again later.");
+//             } else {
+//                 // Handle other errors
+//                 console.error("Error occurred:", error);
+//             }
+//         });
+// }
 
     function submitSignUp(event){
        if(user.password!== user.confirmPassword){
