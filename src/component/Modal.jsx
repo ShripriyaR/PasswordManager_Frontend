@@ -14,7 +14,7 @@ function DeleteAppModal(props){
 
         }
         console.log("entered handleDelete : "  +appName);
-        webClient.post(API.ENDPOINT_DELETE_APP, req)
+        webClient.post(API.ENDPOINT_DELETE_APP, req,{ timeout: 5000 })
         .then(resp => {
           console.log(`${appName} deleted successfully`);
           dispatch(updateUser(resp.data));

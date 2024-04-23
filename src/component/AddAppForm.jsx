@@ -27,7 +27,7 @@ const AddApp = () => {
         username: user.username,
         app: app
       }
-      webClient.post(API.ENDPOINT_ADD_APP, req)
+      webClient.post(API.ENDPOINT_ADD_APP, req, { timeout: 5000 })
         .then(resp => {
           console.log(`${app.name} added successfully`);
           dispatch(updateUser(resp.data));
