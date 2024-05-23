@@ -22,7 +22,7 @@ function SignUpForm(){
     }
 
     function saveUserDetails(){
-        webClient.post('/user/addUserDetails', user,{ timeout: 5000 }).then(response => {
+        webClient.post('/user/addUserDetails', user,{ timeout: 6000 }).then(response => {
             alert("Sign up Successfull..... Please Login");
             setUser(emptyUser);
         }).catch(err => {

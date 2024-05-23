@@ -5,6 +5,7 @@ import { webClient } from "../util/config";
 import { API } from "../util/constants";
 import { updateUser } from "../redux/slices/userSlice";
 
+
 const AddApp = () => {
   const [app, saveApp] = useState({
     name: '',
@@ -12,9 +13,10 @@ const AddApp = () => {
     additionalProperties: []
   });
   const [pwdMatched, setPwdMatched] = useState(true);
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
   const [rowCount, setRowCount] = useState(0);
   const dispatch = useDispatch();
+
 
   const onAddAppSubmit = (event) => {
     event.preventDefault();
@@ -58,6 +60,7 @@ const AddApp = () => {
       setPwdMatched(true);
     }
   };
+
 
   return (
     <div className="modal modal-lg fade" id="addAppModal" tabIndex="-1" aria-labelledby="addAppModal" aria-hidden="true">
